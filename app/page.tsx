@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CheckCircle, Clock, Heart, Shield, ArrowRight, Star, Award, ChevronDown, Home as HomeIcon, TrendingUp, Trophy, Users, Truck, Shirt, Briefcase, Monitor } from "lucide-react";
+import { CheckCircle, Clock, Shield, ArrowRight, Star, Award, ChevronDown, Home as HomeIcon, TrendingUp, Trophy, Users, Truck, Shirt, Briefcase, Monitor, DollarSign, MapPin } from "lucide-react";
 
 export default function Home() {
   const professionalServices = [
@@ -47,26 +47,27 @@ export default function Home() {
     },
   ];
 
-  const benefits = [
+  // Why Choose Us Benefits
+  const whyChooseUs = [
     {
-      icon: <Clock className="w-8 h-8 text-primary" />,
-      title: "Save Time",
-      description: "Find what you need instantly and reclaim hours each week with organized systems.",
+      icon: <DollarSign className="w-12 h-12 text-secondary" />,
+      headline: "No Hidden Fees, Ever",
+      description: "See exactly what you'll pay before you book. No surprises, no pressure, just honest pricing.",
     },
     {
-      icon: <Heart className="w-8 h-8 text-primary" />,
-      title: "Reduce Stress",
-      description: "Experience peace of mind in a clutter-free environment tailored to your lifestyle.",
+      icon: <Clock className="w-12 h-12 text-secondary" />,
+      headline: "Get Organized This Week",
+      description: "Most competitors make you wait weeks. We offer same-week appointments because we know you're ready for change now.",
     },
     {
-      icon: <Shield className="w-8 h-8 text-primary" />,
-      title: "Personalized Solutions",
-      description: "Custom organization systems designed specifically for your needs and preferences.",
+      icon: <CheckCircle className="w-12 h-12 text-secondary" />,
+      headline: "Real Results, Guaranteed",
+      description: "We've transformed 500+ Fort Smith homes. If you're not thrilled with the results, we'll make it right—guaranteed.",
     },
     {
-      icon: <CheckCircle className="w-8 h-8 text-primary" />,
-      title: "Lasting Results",
-      description: "Learn sustainable habits that keep your spaces organized long-term.",
+      icon: <MapPin className="w-12 h-12 text-secondary" />,
+      headline: "Fort Smith Born & Raised",
+      description: "We understand Fort Smith homes, weather challenges, and local donation centers. You're working with neighbors, not strangers.",
     },
   ];
 
@@ -357,28 +358,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Why Choose Us Section */}
       <section className="py-20 bg-white">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold text-textPrimary mb-4">
-              Why Choose Us?
+          {/* Section Header */}
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-textPrimary mb-4">
+              Why Fort Smith Families Choose Us
             </h2>
-            <p className="text-lg text-textPrimary/70 max-w-2xl mx-auto">
-              Experience the benefits of professional organization
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit) => (
-              <div key={benefit.title} className="text-center">
-                <div className="flex justify-center mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-semibold text-textPrimary mb-3">
-                  {benefit.title}
-                </h3>
-                <p className="text-textPrimary/70">{benefit.description}</p>
+          {/* Benefits Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto mb-12">
+            {whyChooseUs.map((benefit, index) => (
+              <div key={index} className="flex items-start gap-6">
+                {/* Icon Circle */}
+                <div className="flex-shrink-0">
+                  <div className="w-[80px] h-[80px] rounded-full bg-secondary/20 flex items-center justify-center">
+                    {benefit.icon}
+                  </div>
+                </div>
+
+                {/* Text Content */}
+                <div className="flex-1">
+                  <h3 className="text-[20px] font-bold text-primary mb-3">
+                    {benefit.headline}
+                  </h3>
+                  <p className="text-[16px] text-textPrimary/70 leading-relaxed">
+                    {benefit.description}
+                  </p>
+                </div>
               </div>
             ))}
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="text-center mt-12 md:mt-16">
+            <Link
+              href="/contact"
+              className="bg-accent hover:bg-accent/90 text-white px-10 py-5 md:px-12 md:py-6 rounded-lg font-bold text-[18px] md:text-[20px] transition-all inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+            >
+              Ready to Get Started? Book Your Free Consultation
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </section>
