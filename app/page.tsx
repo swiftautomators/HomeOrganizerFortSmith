@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CheckCircle, Clock, Heart, Shield, ArrowRight, Star, Award, ChevronDown } from "lucide-react";
+import { CheckCircle, Clock, Heart, Shield, ArrowRight, Star, Award, ChevronDown, Home as HomeIcon, TrendingUp, Trophy, Users } from "lucide-react";
 
 export default function Home() {
   const services = [
@@ -73,6 +73,58 @@ export default function Home() {
     },
   ];
 
+  // Social Proof Statistics
+  const statistics = [
+    {
+      number: "500+",
+      label: "Homes Organized",
+      icon: <HomeIcon className="w-10 h-10 text-secondary" />,
+    },
+    {
+      number: "50+",
+      label: "5-Star Reviews",
+      icon: <Star className="w-10 h-10 text-secondary" />,
+    },
+    {
+      number: "10+",
+      label: "Years Experience",
+      icon: <TrendingUp className="w-10 h-10 text-secondary" />,
+    },
+    {
+      number: "100%",
+      label: "Satisfaction Rate",
+      icon: <Trophy className="w-10 h-10 text-secondary" />,
+    },
+  ];
+
+  // Social Proof Testimonials
+  const socialProofTestimonials = [
+    {
+      name: "Sarah M.",
+      location: "Fort Smith",
+      service: "Home Organization Package",
+      rating: 5,
+      quote: "I can't believe the transformation! My home went from chaotic to calm in just two days. The team was professional, non-judgmental, and created systems that actually work for my busy family.",
+      avatar: "SM",
+    },
+    {
+      name: "Michael R.",
+      location: "Fort Smith",
+      service: "Move Management",
+      rating: 5,
+      quote: "Moving was always my nightmare, but they made it seamless. From packing to unpacking, everything was organized and labeled. We settled into our new home in half the time I expected.",
+      avatar: "MR",
+    },
+    {
+      name: "Jennifer K.",
+      location: "Fort Smith",
+      service: "Closet Organization",
+      rating: 5,
+      quote: "Getting dressed used to take 20 minutes of frustration. Now it takes 5 minutes and I actually enjoy it. The custom closet system they designed is both beautiful and functional.",
+      avatar: "JK",
+    },
+  ];
+
   return (
     <>
       {/* Hero Section - Conversion Optimized */}
@@ -132,9 +184,104 @@ export default function Home() {
 
         {/* Scroll Indicator */}
         <div className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <a href="#services" className="flex flex-col items-center text-white hover:text-white/80 transition-colors">
+          <a href="#social-proof" className="flex flex-col items-center text-white hover:text-white/80 transition-colors">
             <ChevronDown className="w-8 h-8" />
           </a>
+        </div>
+      </section>
+
+      {/* Social Proof Section */}
+      <section id="social-proof" className="py-16 md:py-20 bg-secondary/10">
+        <div className="container-custom">
+          {/* Section Title */}
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-textPrimary mb-4">
+              Trusted by Fort Smith Families
+            </h2>
+          </div>
+
+          {/* Statistics Bar */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 md:mb-20">
+            {statistics.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="flex justify-center mb-4">{stat.icon}</div>
+                <div className="text-[56px] font-bold text-primary leading-none mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-[16px] text-textPrimary">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Testimonial Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {socialProofTestimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-6"
+              >
+                {/* Star Rating */}
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <p className="text-textPrimary/80 italic mb-6 leading-relaxed">
+                  "{testimonial.quote}"
+                </p>
+
+                {/* Client Info */}
+                <div className="border-t border-border pt-4">
+                  <div className="flex items-center gap-3">
+                    {/* Avatar Circle */}
+                    <div className="w-[50px] h-[50px] rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <span className="text-primary font-semibold text-lg">
+                        {testimonial.avatar}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-textPrimary">
+                        {testimonial.name}, {testimonial.location}
+                      </p>
+                      <p className="text-sm text-textPrimary/60">
+                        {testimonial.service}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Review Platform Badges */}
+          <div className="flex flex-wrap justify-center items-center gap-8 pt-8 border-t border-border">
+            <div className="text-center">
+              <div className="flex items-center gap-2 bg-white px-6 py-3 rounded-lg shadow-sm">
+                <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                  <Star className="w-5 h-5 text-accent fill-accent" />
+                </div>
+                <div className="text-left">
+                  <p className="font-semibold text-textPrimary text-sm">Google Reviews</p>
+                  <p className="text-xs text-textPrimary/60">4.9/5.0 Rating</p>
+                </div>
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center gap-2 bg-white px-6 py-3 rounded-lg shadow-sm">
+                <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                  <Users className="w-5 h-5 text-primary" />
+                </div>
+                <div className="text-left">
+                  <p className="font-semibold text-textPrimary text-sm">Facebook Reviews</p>
+                  <p className="text-xs text-textPrimary/60">5.0/5.0 Rating</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
