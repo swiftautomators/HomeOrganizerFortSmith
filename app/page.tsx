@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CheckCircle, Clock, Heart, Shield, ArrowRight, Star } from "lucide-react";
+import { CheckCircle, Clock, Heart, Shield, ArrowRight, Star, Award, ChevronDown } from "lucide-react";
 
 export default function Home() {
   const services = [
@@ -75,38 +75,71 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/10 via-background to-secondary/10 py-20 md:py-32">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-textPrimary mb-6">
-              Transform Your Space,<br />
-              <span className="text-primary">Transform Your Life</span>
+      {/* Hero Section - Conversion Optimized */}
+      <section className="relative min-h-[auto] md:min-h-screen bg-gradient-to-br from-primary via-primary to-[#3C7383] flex items-center">
+        <div className="container-custom py-20 md:py-0">
+          <div className="max-w-5xl mx-auto text-center text-white">
+            {/* Main Headline - 4-U Formula */}
+            <h1 className="text-[32px] leading-tight md:text-[48px] font-bold mb-6 md:mb-8">
+              Fort Smith's Trusted Professional Organizer—Transform Your Home in Days, Not Months
             </h1>
-            <p className="text-xl md:text-2xl text-textPrimary/80 mb-8 max-w-3xl mx-auto">
-              Professional organizing services in Fort Smith, Arkansas. Create the organized, peaceful home or office you deserve.
+
+            {/* Subheadline - Customer Problem Focus */}
+            <p className="text-[18px] md:text-[24px] font-medium mb-10 md:mb-12 max-w-4xl mx-auto leading-relaxed opacity-95">
+              Overwhelmed by clutter? We create calm, organized spaces that fit your life—with transparent pricing and same-week availability.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10 md:mb-12">
+              {/* Primary CTA */}
               <Link
                 href="/contact"
-                className="bg-accent hover:bg-accent/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center justify-center gap-2"
+                className="bg-accent hover:bg-accent/90 text-white px-10 py-5 md:px-12 md:py-7 rounded-lg font-bold text-[18px] md:text-[20px] transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
               >
-                Book Free Consultation
-                <ArrowRight className="w-5 h-5" />
+                Get MY Free Consultation
               </Link>
+
+              {/* Secondary CTA */}
               <Link
-                href="/services"
-                className="bg-white hover:bg-gray-50 text-primary border-2 border-primary px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+                href="/pricing"
+                className="border-2 border-white text-white hover:bg-white/10 px-10 py-5 md:px-12 md:py-7 rounded-lg font-bold text-[18px] md:text-[20px] transition-all"
               >
-                View Services
+                See Our Pricing
               </Link>
             </div>
+
+            {/* Trust Signals - Pill Badges */}
+            <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 md:px-5 md:py-3 rounded-full">
+                <Star className="w-4 h-4 md:w-5 md:h-5 fill-white" />
+                <span className="text-sm md:text-base font-medium">50+ 5-Star Reviews</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 md:px-5 md:py-3 rounded-full">
+                <Shield className="w-4 h-4 md:w-5 md:h-5" />
+                <span className="text-sm md:text-base font-medium">Licensed & Insured</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 md:px-5 md:py-3 rounded-full">
+                <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />
+                <span className="text-sm md:text-base font-medium">Satisfaction Guaranteed</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 md:px-5 md:py-3 rounded-full">
+                <Award className="w-4 h-4 md:w-5 md:h-5" />
+                <span className="text-sm md:text-base font-medium">NAPO Member</span>
+              </div>
+            </div>
           </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <a href="#services" className="flex flex-col items-center text-white hover:text-white/80 transition-colors">
+            <ChevronDown className="w-8 h-8" />
+          </a>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-20">
+      <section id="services" className="py-20">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold text-textPrimary mb-4">

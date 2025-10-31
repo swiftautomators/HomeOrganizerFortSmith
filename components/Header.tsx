@@ -20,14 +20,11 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-border">
       {/* Top Bar with Phone */}
-      <div className="bg-primary text-white py-2">
-        <div className="container-custom flex justify-between items-center">
-          <div className="text-sm">
-            <span className="hidden sm:inline">Professional Organizing Services in Fort Smith, AR</span>
-          </div>
+      <div className="bg-white border-b border-border py-2">
+        <div className="container-custom flex justify-end items-center">
           <a
             href="tel:+14795551234"
-            className="flex items-center gap-2 hover:text-background transition-colors font-medium"
+            className="flex items-center gap-2 text-accent hover:text-accent/80 transition-colors font-semibold"
           >
             <Phone className="w-4 h-4" />
             <span>(479) 555-1234</span>
