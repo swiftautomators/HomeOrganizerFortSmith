@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CheckCircle, Clock, Shield, ArrowRight, Star, Award, ChevronDown, Home as HomeIcon, TrendingUp, Trophy, Users, Truck, Shirt, Briefcase, Monitor, DollarSign, MapPin } from "lucide-react";
+import { CheckCircle, Clock, Shield, ArrowRight, Star, Award, ChevronDown, Home as HomeIcon, TrendingUp, Trophy, Users, Truck, Shirt, Briefcase, Monitor, DollarSign, MapPin, Phone } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -666,22 +666,68 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-primary text-white">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Ready to Get Organized?
+      {/* Final CTA Section */}
+      <section className="py-20 md:py-[120px] bg-primary text-white relative overflow-hidden">
+        {/* Optional subtle background pattern overlay */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'radial-gradient(circle at 20px 20px, white 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }} />
+        </div>
+
+        <div className="container-custom text-center relative z-10">
+          {/* Headline */}
+          <h2 className="text-[32px] md:text-[48px] font-bold mb-6 text-white">
+            Ready to Transform Your Fort Smith Home?
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Book your free consultation today and take the first step toward a more organized life.
+
+          {/* Subheadline */}
+          <p className="text-[18px] md:text-[24px] mb-10 md:mb-12 max-w-3xl mx-auto text-white opacity-95">
+            Book your free consultation today and take the first step toward a clutter-free life.
           </p>
-          <Link
-            href="/contact"
-            className="bg-accent hover:bg-accent/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center gap-2"
-          >
-            Book Free Consultation
-            <ArrowRight className="w-5 h-5" />
-          </Link>
+
+          {/* CTAs */}
+          <div className="flex flex-col md:flex-row gap-4 justify-center items-center mb-8">
+            {/* Primary CTA */}
+            <Link
+              href="/contact"
+              className="bg-accent hover:bg-accent/90 text-white px-10 py-4 rounded-lg font-bold text-lg transition-colors inline-flex items-center justify-center gap-2 w-full md:w-auto h-[56px]"
+            >
+              Schedule Free Consultation
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+
+            {/* Secondary CTA */}
+            <a
+              href="tel:+14795551234"
+              className="border-2 border-white hover:bg-white hover:text-primary text-white px-10 py-4 rounded-lg font-bold text-lg transition-colors inline-flex items-center justify-center gap-2 w-full md:w-auto h-[56px]"
+            >
+              <Phone className="w-5 h-5" />
+              Call Now: (479) 555-1234
+            </a>
+          </div>
+
+          {/* Reassurance Text */}
+          <p className="text-[14px] text-white opacity-90 mb-8">
+            No obligation, no pressure—just honest advice and a clear plan.
+          </p>
+
+          {/* Trust Badges */}
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+            <div className="bg-white/20 backdrop-blur-sm px-5 py-3 rounded-full flex items-center gap-2 text-white text-sm font-medium">
+              <Star className="w-4 h-4 fill-white" />
+              <span>5-Star Reviews</span>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm px-5 py-3 rounded-full flex items-center gap-2 text-white text-sm font-medium">
+              <Shield className="w-4 h-4" />
+              <span>Licensed & Insured</span>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm px-5 py-3 rounded-full flex items-center gap-2 text-white text-sm font-medium">
+              <CheckCircle className="w-4 h-4" />
+              <span>Satisfaction Guaranteed</span>
+            </div>
+          </div>
         </div>
       </section>
 
