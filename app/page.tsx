@@ -1,5 +1,11 @@
 import Link from "next/link";
 import { CheckCircle, Clock, Shield, ArrowRight, Star, Award, ChevronDown, Home as HomeIcon, TrendingUp, Trophy, Users, Truck, Shirt, Briefcase, Monitor, DollarSign, MapPin } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function Home() {
   const professionalServices = [
@@ -550,6 +556,82 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-20 bg-background">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold text-textPrimary mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-textPrimary/70 max-w-2xl mx-auto">
+              Everything you need to know about working with us
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <Accordion
+              type="multiple"
+              defaultValue={["item-0", "item-1", "item-2"]}
+              className="space-y-4"
+            >
+              <AccordionItem value="item-0">
+                <AccordionTrigger>
+                  What if I'm embarrassed about my clutter?
+                </AccordionTrigger>
+                <AccordionContent>
+                  We've seen it all, and we're here to help, not judge. Clutter happens to everyone, and there's no shame in needing support. Our approach is compassionate, confidential, and focused on solutions, not criticism. Your space is a safe, judgment-free zone with us.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-1">
+                <AccordionTrigger>
+                  How long does organization last?
+                </AccordionTrigger>
+                <AccordionContent>
+                  With our systems, most clients maintain organization for years. We don't just organize—we create sustainable systems that fit your lifestyle. Plus, we provide maintenance tips and offer monthly maintenance plans to keep your space in perfect order long-term.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-2">
+                <AccordionTrigger>
+                  Is it worth the investment?
+                </AccordionTrigger>
+                <AccordionContent>
+                  The average person spends 2.5 days per year searching for misplaced items. That's 20+ hours of your life. Our clients report saving 5-10 hours per week after organization. At $650 for our Starter Package, that's less than $15 per hour of time saved—and the peace of mind is priceless.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3">
+                <AccordionTrigger>
+                  Do I need to be present during organizing?
+                </AccordionTrigger>
+                <AccordionContent>
+                  It's up to you! Some clients prefer to be involved in decision-making, while others trust us to work independently. We'll discuss your preferences during the free consultation and create a plan that works for your schedule and comfort level.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4">
+                <AccordionTrigger>
+                  What happens to items I don't want?
+                </AccordionTrigger>
+                <AccordionContent>
+                  We'll help you sort items into keep, donate, sell, or discard. We can coordinate donation pickup from local Fort Smith charities, provide selling recommendations, and handle disposal of unwanted items. You make the decisions; we handle the logistics.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5">
+                <AccordionTrigger>
+                  Can you work within my budget?
+                </AccordionTrigger>
+                <AccordionContent>
+                  Absolutely! We offer packages from $650 to $4,500, plus hourly options. During your free consultation, we'll assess your space and recommend the most cost-effective approach. We also offer payment plans for packages over $1,000.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-20">
         <div className="container-custom">
@@ -602,6 +684,67 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      {/* FAQ Schema Markup for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What if I'm embarrassed about my clutter?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We've seen it all, and we're here to help, not judge. Clutter happens to everyone, and there's no shame in needing support. Our approach is compassionate, confidential, and focused on solutions, not criticism. Your space is a safe, judgment-free zone with us."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How long does organization last?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "With our systems, most clients maintain organization for years. We don't just organize—we create sustainable systems that fit your lifestyle. Plus, we provide maintenance tips and offer monthly maintenance plans to keep your space in perfect order long-term."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is it worth the investment?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The average person spends 2.5 days per year searching for misplaced items. That's 20+ hours of your life. Our clients report saving 5-10 hours per week after organization. At $650 for our Starter Package, that's less than $15 per hour of time saved—and the peace of mind is priceless."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need to be present during organizing?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "It's up to you! Some clients prefer to be involved in decision-making, while others trust us to work independently. We'll discuss your preferences during the free consultation and create a plan that works for your schedule and comfort level."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What happens to items I don't want?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We'll help you sort items into keep, donate, sell, or discard. We can coordinate donation pickup from local Fort Smith charities, provide selling recommendations, and handle disposal of unwanted items. You make the decisions; we handle the logistics."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you work within my budget?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely! We offer packages from $650 to $4,500, plus hourly options. During your free consultation, we'll assess your space and recommend the most cost-effective approach. We also offer payment plans for packages over $1,000."
+                }
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }
