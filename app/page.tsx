@@ -1,31 +1,49 @@
 import Link from "next/link";
-import { CheckCircle, Clock, Heart, Shield, ArrowRight, Star, Award, ChevronDown, Home as HomeIcon, TrendingUp, Trophy, Users } from "lucide-react";
+import { CheckCircle, Clock, Heart, Shield, ArrowRight, Star, Award, ChevronDown, Home as HomeIcon, TrendingUp, Trophy, Users, Truck, Shirt, Briefcase, Monitor } from "lucide-react";
 
 export default function Home() {
-  const services = [
+  const professionalServices = [
     {
       title: "Home Organization",
-      description: "Transform your living spaces into organized, functional areas that bring peace and joy to your daily life.",
+      description: "Transform cluttered spaces into calm, functional areas that make daily life easier and more enjoyable.",
+      price: "From $60/hour",
       href: "/services/home-organization",
-      icon: "🏠",
+      icon: <HomeIcon className="w-[60px] h-[60px] text-secondary" />,
+    },
+    {
+      title: "Move Management",
+      description: "Stress-free moving with professional packing, unpacking, and setup services for your new home.",
+      price: "From $85/hour",
+      href: "/services/move-management",
+      icon: <Truck className="w-[60px] h-[60px] text-secondary" />,
+    },
+    {
+      title: "Closet Organization",
+      description: "Custom closet systems that make getting dressed effortless and help you love your wardrobe again.",
+      price: "From $60/hour",
+      href: "/services/closet-organization",
+      icon: <Shirt className="w-[60px] h-[60px] text-secondary" />,
     },
     {
       title: "Office Organization",
-      description: "Boost productivity with organized workspaces designed for efficiency and professional success.",
+      description: "Boost productivity with organized workspaces, efficient filing systems, and clutter-free desks.",
+      price: "From $75/hour",
       href: "/services/office-organization",
-      icon: "💼",
+      icon: <Briefcase className="w-[60px] h-[60px] text-secondary" />,
     },
     {
-      title: "Decluttering Services",
-      description: "Let go of what no longer serves you with compassionate guidance through the decluttering process.",
-      href: "/services/decluttering",
-      icon: "✨",
+      title: "Estate & Downsizing",
+      description: "Compassionate support for seniors downsizing or families managing estate transitions.",
+      price: "From $90/hour",
+      href: "/services/estate-downsizing",
+      icon: <Users className="w-[60px] h-[60px] text-secondary" />,
     },
     {
-      title: "Moving Assistance",
-      description: "Make your move stress-free with expert packing, unpacking, and organization services.",
-      href: "/services/moving-assistance",
-      icon: "📦",
+      title: "Digital Organization",
+      description: "Organize your digital life with cloud storage, file systems, and paperless office solutions.",
+      price: "From $80/hour",
+      href: "/services/digital-organization",
+      icon: <Monitor className="w-[60px] h-[60px] text-secondary" />,
     },
   ];
 
@@ -285,34 +303,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20">
+      {/* Services Overview Section */}
+      <section id="services" className="py-20 bg-background">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold text-textPrimary mb-4">
-              Our Services
+          {/* Section Header */}
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-textPrimary mb-4">
+              Our Professional Organizing Services
             </h2>
-            <p className="text-lg text-textPrimary/70 max-w-2xl mx-auto">
-              Comprehensive organizing solutions tailored to your unique needs
+            <p className="text-lg md:text-xl text-textPrimary/70 max-w-3xl mx-auto">
+              From single rooms to whole-home transformations
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service) => (
-              <Link
+          {/* Service Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {professionalServices.map((service) => (
+              <div
                 key={service.title}
-                href={service.href}
-                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow border border-border group"
+                className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 p-8 flex flex-col h-full group"
               >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold text-textPrimary mb-3 group-hover:text-primary transition-colors">
+                {/* Icon */}
+                <div className="mb-6">
+                  {service.icon}
+                </div>
+
+                {/* Service Title */}
+                <h3 className="text-[24px] font-bold text-primary mb-4">
                   {service.title}
                 </h3>
-                <p className="text-textPrimary/70 mb-4">{service.description}</p>
-                <span className="text-primary font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                  Learn more <ArrowRight className="w-4 h-4" />
-                </span>
-              </Link>
+
+                {/* Description */}
+                <p className="text-[16px] text-textPrimary/70 leading-relaxed mb-6 flex-grow line-clamp-3">
+                  {service.description}
+                </p>
+
+                {/* Price */}
+                <p className="text-[18px] font-bold text-accent mb-6">
+                  {service.price}
+                </p>
+
+                {/* CTA Button */}
+                <Link
+                  href={service.href}
+                  className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 rounded-lg font-semibold text-center transition-all duration-300 inline-flex items-center justify-center gap-2"
+                >
+                  Learn More
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             ))}
           </div>
         </div>
