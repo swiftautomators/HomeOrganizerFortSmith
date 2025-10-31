@@ -71,6 +71,52 @@ export default function Home() {
     },
   ];
 
+  // Pricing Packages
+  const pricingPackages = [
+    {
+      name: "Starter Package",
+      price: "$650",
+      savings: "Save $100",
+      hours: "10 hours of organizing",
+      description: "Perfect for single room or small project",
+      features: [
+        "10 hours of organizing",
+        "Perfect for single room",
+        "Free consultation ($75 value)",
+      ],
+      cta: "Learn More",
+      popular: false,
+    },
+    {
+      name: "Home Refresh Package",
+      price: "$1,250",
+      savings: "Save $250",
+      hours: "20 hours of organizing",
+      description: "Perfect for multiple rooms",
+      features: [
+        "20 hours of organizing",
+        "Perfect for multiple rooms",
+        "Free consultation ($75 value)",
+      ],
+      cta: "Get Started",
+      popular: true,
+    },
+    {
+      name: "Complete Home Transformation",
+      price: "$2,400",
+      savings: "Save $600",
+      hours: "40 hours of organizing",
+      description: "Perfect for whole-home projects",
+      features: [
+        "40 hours of organizing",
+        "Perfect for whole-home",
+        "Free consultation ($75 value)",
+      ],
+      cta: "Learn More",
+      popular: false,
+    },
+  ];
+
   const testimonials = [
     {
       name: "Sarah Johnson",
@@ -399,6 +445,105 @@ export default function Home() {
               className="bg-accent hover:bg-accent/90 text-white px-10 py-5 md:px-12 md:py-6 rounded-lg font-bold text-[18px] md:text-[20px] transition-all inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
             >
               Ready to Get Started? Book Your Free Consultation
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Teaser Section */}
+      <section className="py-20 bg-background">
+        <div className="container-custom">
+          {/* Section Header */}
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-textPrimary mb-4">
+              Transparent, Value-Based Pricing
+            </h2>
+            <p className="text-lg md:text-xl text-textPrimary/70">
+              Choose the package that fits your needs and budget
+            </p>
+          </div>
+
+          {/* Pricing Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+            {pricingPackages.map((pkg) => (
+              <div
+                key={pkg.name}
+                className={`bg-white rounded-lg overflow-hidden flex flex-col h-full ${
+                  pkg.popular
+                    ? "border-2 border-accent shadow-xl lg:-translate-y-5 relative"
+                    : "shadow-md"
+                }`}
+              >
+                {/* Most Popular Badge */}
+                {pkg.popular && (
+                  <div className="bg-accent text-white text-center py-2 px-4 font-bold text-sm">
+                    MOST POPULAR
+                  </div>
+                )}
+
+                {/* Package Header */}
+                <div className="bg-primary text-white py-4 px-6">
+                  <h3 className="text-xl font-bold text-center">{pkg.name}</h3>
+                </div>
+
+                {/* Card Body */}
+                <div className="p-6 md:p-8 flex flex-col flex-grow">
+                  {/* Price */}
+                  <div className="text-center mb-4">
+                    <div className="text-[48px] font-bold text-textPrimary leading-none mb-2">
+                      {pkg.price}
+                    </div>
+                    <div className="inline-block bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-2">
+                      {pkg.savings}
+                    </div>
+                    <div className="text-textPrimary/70 font-medium">
+                      {pkg.hours}
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-center text-textPrimary/70 mb-6">
+                    {pkg.description}
+                  </p>
+
+                  {/* Features */}
+                  <ul className="space-y-3 mb-8 flex-grow">
+                    {pkg.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                        <span className="text-textPrimary/80">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA Button */}
+                  <Link
+                    href="/pricing"
+                    className={`w-full py-3 md:py-4 rounded-lg font-semibold text-center transition-all inline-flex items-center justify-center gap-2 ${
+                      pkg.popular
+                        ? "bg-accent hover:bg-accent/90 text-white text-lg"
+                        : "border-2 border-primary text-primary hover:bg-primary hover:text-white"
+                    }`}
+                  >
+                    {pkg.cta}
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Text and Link */}
+          <div className="text-center">
+            <p className="text-textPrimary/70 mb-4">
+              All packages include free consultation ($75 value) • Payment plans available
+            </p>
+            <Link
+              href="/pricing"
+              className="text-primary hover:text-primary/80 font-semibold inline-flex items-center gap-2 text-lg"
+            >
+              View Complete Pricing & Services
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
