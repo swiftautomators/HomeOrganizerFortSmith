@@ -9,8 +9,31 @@ import {
 } from "@/components/ui/accordion";
 
 export const metadata: Metadata = {
-  title: "Pricing | Professional Organizer Fort Smith",
-  description: "Transparent pricing for professional organizing services in Fort Smith. Packages from $650 to $4,500 with no hidden fees. Payment plans available.",
+  title: "Transparent Pricing | Professional Organizer Fort Smith",
+  description: "Honest, upfront pricing for professional organizing in Fort Smith. Packages from $650-$4,500. No hidden fees. Payment plans available. View our rates and book your free consultation.",
+  keywords: ["professional organizer pricing", "fort smith organizer rates", "home organization cost", "organizing packages", "transparent pricing fort smith"],
+  openGraph: {
+    title: "Transparent Pricing | Professional Organizer Fort Smith",
+    description: "Honest, upfront pricing for professional organizing in Fort Smith. Packages from $650-$4,500. No hidden fees. Payment plans available.",
+    url: "https://professionalorganizerfortsmith.com/pricing",
+    siteName: "Professional Organizer Fort Smith",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "https://professionalorganizerfortsmith.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Professional Organizer Fort Smith - Transparent Pricing",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Transparent Pricing | Professional Organizer Fort Smith",
+    description: "Honest, upfront pricing for professional organizing in Fort Smith. Packages from $650-$4,500. No hidden fees. Payment plans available.",
+    images: ["https://professionalorganizerfortsmith.com/og-image.jpg"],
+  },
 };
 
 export default function PricingPage() {

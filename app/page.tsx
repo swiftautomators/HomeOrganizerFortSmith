@@ -6,6 +6,35 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Professional Organizer Fort Smith | Home Organization Services Arkansas",
+  description: "Fort Smith's trusted professional organizer. Transform your home in days with our expert organizing services. Transparent pricing, same-week availability. Book your free consultation today!",
+  keywords: ["professional organizer fort smith", "home organization fort smith arkansas", "decluttering services", "closet organization", "professional organizing", "fort smith ar organizer"],
+  openGraph: {
+    title: "Professional Organizer Fort Smith | Home Organization Services Arkansas",
+    description: "Fort Smith's trusted professional organizer. Transform your home in days with our expert organizing services. Transparent pricing, same-week availability.",
+    url: "https://professionalorganizerfortsmith.com",
+    siteName: "Professional Organizer Fort Smith",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "https://professionalorganizerfortsmith.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Professional Organizer Fort Smith - Home Organization Services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Professional Organizer Fort Smith | Home Organization Services Arkansas",
+    description: "Fort Smith's trusted professional organizer. Transform your home in days with our expert organizing services. Transparent pricing, same-week availability.",
+    images: ["https://professionalorganizerfortsmith.com/og-image.jpg"],
+  },
+};
 
 export default function Home() {
   const professionalServices = [
@@ -730,6 +759,47 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* LocalBusiness Schema Markup for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Professional Organizer Fort Smith",
+            "image": "https://professionalorganizerfortsmith.com/logo.png",
+            "description": "Professional home and office organizing services in Fort Smith, Arkansas. Expert decluttering, closet organization, move management, and more.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Fort Smith",
+              "addressRegion": "AR",
+              "addressCountry": "US"
+            },
+            "telephone": "+14795551234",
+            "email": "hello@professionalorganizerfortsmith.com",
+            "url": "https://professionalorganizerfortsmith.com",
+            "priceRange": "$$",
+            "openingHours": "Mo-Fr 09:00-18:00, Sa 10:00-16:00",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5.0",
+              "reviewCount": "50",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "areaServed": {
+              "@type": "GeoCircle",
+              "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "35.3859",
+                "longitude": "-94.3985"
+              },
+              "geoRadius": "30 miles"
+            }
+          })
+        }}
+      />
 
       {/* FAQ Schema Markup for SEO */}
       <script

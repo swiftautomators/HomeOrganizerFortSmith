@@ -4,8 +4,31 @@ import ContactForm from "@/components/ContactForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Professional Organizer Fort Smith",
-  description: "Get in touch for a free consultation. Professional organizing services in Fort Smith, Arkansas. Call (479) 555-1234 or fill out our contact form.",
+  title: "Contact Us | Professional Organizer Fort Smith | Free Consultation",
+  description: "Schedule your free consultation with Fort Smith's top professional organizer. Call (479) 555-1234 or fill out our contact form. Same-week availability. Serving Fort Smith and surrounding areas.",
+  keywords: ["contact professional organizer fort smith", "free consultation", "fort smith organizer contact", "book organizing service", "fort smith arkansas"],
+  openGraph: {
+    title: "Contact Us | Professional Organizer Fort Smith | Free Consultation",
+    description: "Schedule your free consultation with Fort Smith's top professional organizer. Call (479) 555-1234 or fill out our contact form. Same-week availability.",
+    url: "https://professionalorganizerfortsmith.com/contact",
+    siteName: "Professional Organizer Fort Smith",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "https://professionalorganizerfortsmith.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Contact Professional Organizer Fort Smith - Free Consultation",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Us | Professional Organizer Fort Smith | Free Consultation",
+    description: "Schedule your free consultation with Fort Smith's top professional organizer. Call (479) 555-1234 or fill out our contact form. Same-week availability.",
+    images: ["https://professionalorganizerfortsmith.com/og-image.jpg"],
+  },
 };
 
 export default function ContactPage() {
