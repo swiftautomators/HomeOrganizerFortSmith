@@ -30,7 +30,22 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   return {
     title: `${service.title} | Professional Organizer Fort Smith`,
     description: service.description,
+    keywords: [`${service.title.toLowerCase()} fort smith`, "professional organizer", "fort smith arkansas", service.title.toLowerCase()],
+    openGraph: {
+      title: `${service.title} | Professional Organizer Fort Smith`,
+      description: service.description,
+      url: `https://professionalorganizerfortsmith.com/services/${slug}`,
+      siteName: "Professional Organizer Fort Smith",
+      locale: "en_US",
+      type: "website",
+    },
   };
+}
+
+// Helper function to extract price from pricing string
+function extractPrice(pricingString: string): string {
+  const match = pricingString.match(/\$(\d+)/);
+  return match ? match[1] : "75";
 }
 
 export default async function ServiceDetailPage({ params }: ServicePageProps) {
@@ -40,6 +55,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   if (!service) {
     notFound();
   }
+
+  const basePrice = extractPrice(service.pricing);
 
   return (
     <>
@@ -194,6 +211,66 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </div>
         </div>
       </section>
+
+      {/* Service Schema Markup for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": service.title,
+            "description": service.description,
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Professional Organizer Fort Smith",
+              "telephone": "+14795551234",
+              "email": "hello@professionalorganizerfortsmith.com",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Fort Smith",
+                "addressRegion": "AR",
+                "addressCountry": "US"
+              }
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Fort Smith",
+              "state": "AR"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": basePrice,
+              "priceCurrency": "USD",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": basePrice,
+                "priceCurrency": "USD",
+                "unitText": "hour"
+              }
+            }
+          })
+        }}
+      />
+
+      {/* FAQPage Schema Markup for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": service.faqs.map((faq) => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          })
+        }}
+      />
     </>
   );
 }
