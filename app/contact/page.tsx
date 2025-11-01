@@ -1,4 +1,5 @@
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import Link from "next/link";
+import { Phone, Mail, MapPin, Shield, CheckCircle, Star, ArrowRight } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import type { Metadata } from "next";
 
@@ -8,194 +9,313 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const contactInfo = [
+  const faqQuickLinks = [
     {
-      icon: <Phone className="w-6 h-6 text-primary" />,
-      title: "Phone",
-      content: "(479) 555-1234",
-      link: "tel:+14795551234",
+      question: "What if I'm embarrassed?",
+      answer: "We've seen it all! Our approach is compassionate, confidential, and judgment-free. Everyone needs help sometimes.",
     },
     {
-      icon: <Mail className="w-6 h-6 text-primary" />,
-      title: "Email",
-      content: "info@professionalorganizerfortsmith.com",
-      link: "mailto:info@professionalorganizerfortsmith.com",
+      question: "How long does it last?",
+      answer: "With our sustainable systems, most clients maintain organization for years. We create systems that fit your lifestyle.",
     },
     {
-      icon: <MapPin className="w-6 h-6 text-primary" />,
-      title: "Service Area",
-      content: "Fort Smith, AR & Surrounding Areas",
-      link: null,
-    },
-    {
-      icon: <Clock className="w-6 h-6 text-primary" />,
-      title: "Business Hours",
-      content: "Mon-Fri: 8am-6pm, Sat: 9am-3pm",
-      link: null,
+      question: "Can you work within my budget?",
+      answer: "Absolutely! We offer packages from $650 to $4,500, plus hourly options and payment plans for packages over $1,000.",
     },
   ];
 
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/10 via-background to-secondary/10 py-16 md:py-24">
+      <section className="bg-primary text-white py-16 md:py-24">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-textPrimary mb-6">
-              Get In Touch
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Let's Transform Your Space Together
             </h1>
-            <p className="text-xl text-textPrimary/80">
-              Ready to transform your space? Contact us today for a free consultation.
+            <p className="text-xl md:text-2xl opacity-95">
+              Schedule your free consultation or get answers to your questions
             </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Info Cards */}
-      <section className="py-16">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {contactInfo.map((info) => (
-              <div
-                key={info.title}
-                className="bg-white p-6 rounded-xl shadow-md border border-border text-center"
-              >
-                <div className="flex justify-center mb-3">{info.icon}</div>
-                <h3 className="font-semibold text-textPrimary mb-2">
-                  {info.title}
-                </h3>
-                {info.link ? (
-                  <a
-                    href={info.link}
-                    className="text-textPrimary/70 hover:text-primary transition-colors"
-                  >
-                    {info.content}
-                  </a>
-                ) : (
-                  <p className="text-textPrimary/70">{info.content}</p>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form Section */}
+      {/* Contact Options (2-column: methods left, form right) */}
       <section className="py-20 bg-white">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12">
-              {/* Left Column - Info */}
-              <div>
-                <h2 className="text-3xl font-bold text-textPrimary mb-6">
-                  Book Your Free Consultation
-                </h2>
-                <p className="text-textPrimary/80 mb-6 leading-relaxed">
-                  Fill out the form and we'll get back to you within 24 hours to schedule your complimentary consultation. During this call, we'll discuss your organizing needs and how we can help.
-                </p>
-
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-primary font-bold">1</span>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-textPrimary mb-1">
-                        Tell Us About Your Project
-                      </h3>
-                      <p className="text-textPrimary/70 text-sm">
-                        Share details about what you'd like to organize
-                      </p>
-                    </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {/* LEFT COLUMN - Contact Methods */}
+            <div className="space-y-6">
+              {/* Option 1: Call or Text (Most Prominent) */}
+              <div className="bg-white p-8 rounded-xl border-2 border-accent shadow-lg">
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-7 h-7 text-accent" />
                   </div>
-
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-primary font-bold">2</span>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-textPrimary mb-1">
-                        Free Consultation
-                      </h3>
-                      <p className="text-textPrimary/70 text-sm">
-                        We'll schedule a call to discuss your needs
-                      </p>
-                    </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-textPrimary mb-2">
+                      Call or Text
+                    </h3>
+                    <p className="text-textPrimary/70 mb-4">
+                      Prefer to talk? Call or text us now for immediate assistance.
+                    </p>
+                    <a
+                      href="tel:+14795551234"
+                      className="text-3xl font-bold text-accent hover:text-accent/80 transition-colors block mb-3"
+                    >
+                      (479) 555-1234
+                    </a>
+                    <p className="text-sm text-textPrimary/60">
+                      Monday-Friday 9am-6pm<br />
+                      Saturday 10am-4pm
+                    </p>
                   </div>
-
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-primary font-bold">3</span>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-textPrimary mb-1">
-                        Custom Quote
-                      </h3>
-                      <p className="text-textPrimary/70 text-sm">
-                        Receive a personalized plan and pricing
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8 p-6 bg-primary/5 rounded-xl border border-primary/20">
-                  <p className="text-textPrimary/80 font-medium mb-2">
-                    Prefer to call?
-                  </p>
-                  <a
-                    href="tel:+14795551234"
-                    className="text-2xl font-bold text-primary hover:text-primary/80 transition-colors"
-                  >
-                    (479) 555-1234
-                  </a>
                 </div>
               </div>
 
-              {/* Right Column - Form */}
-              <div>
-                <ContactForm />
+              {/* Option 2: Email */}
+              <div className="bg-white p-6 rounded-xl border border-border shadow-sm">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6 text-secondary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-textPrimary mb-2">
+                      Email Us
+                    </h3>
+                    <p className="text-textPrimary/70 mb-3">
+                      Send us an email and we'll respond within 24 hours.
+                    </p>
+                    <a
+                      href="mailto:hello@professionalorganizerfortsmith.com"
+                      className="text-primary hover:text-primary/80 transition-colors font-semibold break-all"
+                    >
+                      hello@professionalorganizerfortsmith.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Option 3: Service Area */}
+              <div className="bg-white p-6 rounded-xl border border-border shadow-sm">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-textPrimary mb-2">
+                      Service Area
+                    </h3>
+                    <p className="text-textPrimary/70 mb-2">
+                      Fort Smith, Arkansas and surrounding areas
+                    </p>
+                    <p className="text-sm text-textPrimary/60">
+                      We serve all of Fort Smith and within 30 miles.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN - Contact Form */}
+            <div className="bg-background p-8 rounded-xl border border-border">
+              <div className="mb-6">
+                <h2 className="text-2xl font-bold text-textPrimary mb-2">
+                  Send a Message
+                </h2>
+                <p className="text-textPrimary/70">
+                  Fill out the form below and we'll respond within 24 hours.
+                </p>
+              </div>
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What to Expect - 4-Step Timeline */}
+      <section className="py-20 bg-background">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-textPrimary mb-4">
+                What to Expect
+              </h2>
+              <p className="text-lg text-textPrimary/70">
+                Your journey to an organized home in 4 simple steps
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+              {/* Connecting Line (desktop only) */}
+              <div className="hidden md:block absolute top-10 left-0 right-0 h-0.5 bg-primary/20" style={{ top: '2.5rem' }} />
+
+              {/* Step 1 */}
+              <div className="text-center relative">
+                <div className="w-20 h-20 rounded-full bg-primary text-white flex items-center justify-center mx-auto mb-4 text-2xl font-bold relative z-10">
+                  1
+                </div>
+                <h3 className="text-xl font-bold text-textPrimary mb-2">
+                  Schedule Consultation
+                </h3>
+                <p className="text-textPrimary/70">
+                  You choose a time that works for you
+                </p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="text-center relative">
+                <div className="w-20 h-20 rounded-full bg-primary text-white flex items-center justify-center mx-auto mb-4 text-2xl font-bold relative z-10">
+                  2
+                </div>
+                <h3 className="text-xl font-bold text-textPrimary mb-2">
+                  We Assess Your Space
+                </h3>
+                <p className="text-textPrimary/70">
+                  30-minute video or in-home visit
+                </p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="text-center relative">
+                <div className="w-20 h-20 rounded-full bg-primary text-white flex items-center justify-center mx-auto mb-4 text-2xl font-bold relative z-10">
+                  3
+                </div>
+                <h3 className="text-xl font-bold text-textPrimary mb-2">
+                  Get Your Custom Plan
+                </h3>
+                <p className="text-textPrimary/70">
+                  Tailored recommendations and pricing
+                </p>
+              </div>
+
+              {/* Step 4 */}
+              <div className="text-center relative">
+                <div className="w-20 h-20 rounded-full bg-primary text-white flex items-center justify-center mx-auto mb-4 text-2xl font-bold relative z-10">
+                  4
+                </div>
+                <h3 className="text-xl font-bold text-textPrimary mb-2">
+                  Book Your Transformation
+                </h3>
+                <p className="text-textPrimary/70">
+                  Choose your package and date
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20">
+      {/* Trust Signals */}
+      <section className="py-12 bg-white">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-textPrimary mb-8 text-center">
-              Common Questions
-            </h2>
-
-            <div className="space-y-6">
-              <div className="bg-white p-6 rounded-lg border border-border">
-                <h3 className="text-xl font-semibold text-textPrimary mb-3">
-                  How quickly can you start?
-                </h3>
-                <p className="text-textPrimary/70">
-                  We typically can schedule your first session within 1-2 weeks of your consultation, depending on availability and project scope.
-                </p>
+          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center">
+                <Shield className="w-6 h-6 text-secondary" />
               </div>
-
-              <div className="bg-white p-6 rounded-lg border border-border">
-                <h3 className="text-xl font-semibold text-textPrimary mb-3">
-                  Do you travel outside Fort Smith?
-                </h3>
-                <p className="text-textPrimary/70">
-                  Yes! We serve Fort Smith and surrounding areas including Van Buren, Barling, Greenwood, and more. Travel fees may apply for locations over 30 miles from Fort Smith.
-                </p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg border border-border">
-                <h3 className="text-xl font-semibold text-textPrimary mb-3">
-                  What if I need to reschedule?
-                </h3>
-                <p className="text-textPrimary/70">
-                  We understand life happens! Please provide 48 hours notice for rescheduling to avoid cancellation fees.
-                </p>
-              </div>
+              <span className="font-semibold text-textPrimary">Licensed & Insured</span>
             </div>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center">
+                <CheckCircle className="w-6 h-6 text-secondary" />
+              </div>
+              <span className="font-semibold text-textPrimary">Satisfaction Guaranteed</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center">
+                <Star className="w-6 h-6 text-secondary fill-secondary" />
+              </div>
+              <span className="font-semibold text-textPrimary">500+ Happy Clients</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Quick Links */}
+      <section className="py-20 bg-background">
+        <div className="container-custom">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-textPrimary mb-4">
+                Quick Answers
+              </h2>
+              <p className="text-lg text-textPrimary/70">
+                Common questions we hear from Fort Smith families
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              {faqQuickLinks.map((faq) => (
+                <div
+                  key={faq.question}
+                  className="bg-white p-6 rounded-xl border border-border shadow-sm"
+                >
+                  <h3 className="text-lg font-bold text-primary mb-3">
+                    {faq.question}
+                  </h3>
+                  <p className="text-textPrimary/70 text-sm leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <Link
+                href="/#faq"
+                className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+              >
+                View All FAQs
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-20 md:py-24 bg-primary text-white">
+        <div className="container-custom text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Get Started?
+          </h2>
+          <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-95">
+            Your organized, clutter-free home is just one call away.
+          </p>
+
+          {/* Trust Badges Repeated */}
+          <div className="flex flex-wrap justify-center gap-6 mb-10">
+            <div className="bg-white/20 backdrop-blur-sm px-5 py-3 rounded-full flex items-center gap-2 text-white text-sm font-medium">
+              <Shield className="w-4 h-4" />
+              <span>Licensed & Insured</span>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm px-5 py-3 rounded-full flex items-center gap-2 text-white text-sm font-medium">
+              <CheckCircle className="w-4 h-4" />
+              <span>Satisfaction Guaranteed</span>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm px-5 py-3 rounded-full flex items-center gap-2 text-white text-sm font-medium">
+              <Star className="w-4 h-4 fill-white" />
+              <span>500+ Happy Clients</span>
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+            <Link
+              href="/contact"
+              className="bg-accent hover:bg-accent/90 text-white px-10 py-4 rounded-lg font-bold text-lg transition-colors inline-flex items-center justify-center gap-2 w-full md:w-auto"
+            >
+              Schedule Free Consultation
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+
+            <a
+              href="tel:+14795551234"
+              className="border-2 border-white hover:bg-white hover:text-primary text-white px-10 py-4 rounded-lg font-bold text-lg transition-colors inline-flex items-center justify-center gap-2 w-full md:w-auto"
+            >
+              <Phone className="w-5 h-5" />
+              Call: (479) 555-1234
+            </a>
           </div>
         </div>
       </section>
