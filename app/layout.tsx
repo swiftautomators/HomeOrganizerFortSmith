@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Professional Organizer Fort Smith | Home & Office Organization Services",
@@ -47,6 +48,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <FloatingCTA />
+        <Analytics />
       </body>
     </html>
   );
